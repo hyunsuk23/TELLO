@@ -2,47 +2,87 @@ $(document).ready(function(){
     let docH = $(document).height();
     let winH = $(window).height();
 
-    $('.login_box a.btn_play').click(function(){
-        $('html, body').animate({scrollTop:docH - winH}, 20000);
+
+    $('body').prepend('<div class="header_top"></div>');
+    $('.header_top').load('include/header.html', function(){
+        let pcGnbHtml = $('.pc_nav .gnb').html()
+        $('.mobile_nav').html('<div class="gnb_mo">'+pcGnbHtml+'</div>');
+        // $('.mobile_nav').html(`<div class="gnb_mo">${pcGnbHtml}</div>`);
+
+
+
+        $('.login_box a.btn_play').click(function(){
+            $('html, body').animate({scrollTop:docH - winH}, 20000);
+        });
+
+        let maxLnbH = 0;
+
+        let gnbH = $('header .gnb').height();
+
+        $('header .lnb').each(function(){
+            let lnbH = $(this).outerHeight(true);
+
+            if(maxLnbH < lnbH){
+                maxLnbH = lnbH
+            }
+            $('header .lnb_bg').height(maxLnbH + gnbH);
+        });
+        $('header .lnb').height(maxLnbH);
+
+        $('header .gnb').mouseenter(function(){
+            $('header .lnb,header .lnb_bg').fadeIn(150)
+        })
+        $('header .gnb').mouseleave(function(){
+            $('header .lnb,header .lnb_bg').fadeOut(150)
+        })
+
+        
+        $(".gnb li").hover(
+            function() {
+                // 0~50px 범위의 랜덤 border-radius 값 생성
+                let radius1 = Math.floor(Math.random() * 51) + "px";
+                let radius2 = Math.floor(Math.random() * 51) + "px";
+                let radius3 = Math.floor(Math.random() * 51) + "px";
+                let radius4 = Math.floor(Math.random() * 51) + "px";
+                
+                $(this).find('a').css("border-radius", `${radius1} ${radius2} ${radius3} ${radius4}`);
+            },
+            function() {
+                // 마우스를 떼면 border-radius를 초기화 (선택 사항)
+                $(this).css("border-radius", "0");
+            }
+        );
+
+
+
+
+        //mobile
+
+        $('.gnb_mo > li > a').click(function(e){
+            $('.lnb').stop().slideUp();
+            $(this).siblings('.lnb').stop().slideToggle();
+            e.preventDefault();
+        });
+        $('header .hamburger').click(function(){
+            $('.mobile_header').show();
+            $('body').css({overflow:'hidden'});
+        });
+        $('.mobile_header .hamburger').click(function(){
+            $('.mobile_header').hide();
+            $('body').css({overflow:'visible'});
+        });
     });
 
-    let maxLnbH = 0;
 
-    let gnbH = $('header .gnb').height();
-
-    $('header .lnb').each(function(){
-        let lnbH = $(this).outerHeight(true);
-
-        if(maxLnbH < lnbH){
-            maxLnbH = lnbH
-        }
-        $('header .lnb_bg').height(maxLnbH + gnbH);
-    });
-    $('header .lnb').height(maxLnbH);
-
-    $('header .gnb').mouseenter(function(){
-        $('header .lnb,header .lnb_bg').fadeIn(150)
-    })
-    $('header .gnb').mouseleave(function(){
-        $('header .lnb,header .lnb_bg').fadeOut(150)
-    })
 
     
-    $(".gnb li").hover(
-        function() {
-            // 0~50px 범위의 랜덤 border-radius 값 생성
-            let radius1 = Math.floor(Math.random() * 51) + "px";
-            let radius2 = Math.floor(Math.random() * 51) + "px";
-            let radius3 = Math.floor(Math.random() * 51) + "px";
-            let radius4 = Math.floor(Math.random() * 51) + "px";
-            
-            $(this).find('a').css("border-radius", `${radius1} ${radius2} ${radius3} ${radius4}`);
-        },
-        function() {
-            // 마우스를 떼면 border-radius를 초기화 (선택 사항)
-            $(this).css("border-radius", "0");
-        }
-    );
+    $('body').append('<footer></footer>');
+    $('footer').load('include/footer.html')
+
+
+
+
+    
 
 
     $('#section4 .review').each(function(){
@@ -58,8 +98,10 @@ $(document).ready(function(){
 
 
 
+// 메인js
+let visualLength = $('#visual').length
 
-
+if(visualLength > 0){
     let winScr = $(window).scrollTop();
     let winHeight = $(window).height();
     let winCenter = winScr + winHeight / 2;
@@ -120,6 +162,8 @@ $(document).ready(function(){
         $('.road .line4').css({ strokeDashoffset: newDashOffset });
         $('.road .tire1').css({ strokeDashoffset: newDashOffset });
         $('.road .tire2').css({ strokeDashoffset: newDashOffset });
+
+        // $('.road').height($('.doro').height())
     }
 
     function part4Action(){
@@ -149,4 +193,8 @@ $(document).ready(function(){
 
         $('.bar').height(winScr * viyul)
     }
+}
+
+
+    
 });

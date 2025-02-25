@@ -23,6 +23,20 @@
 }
 
 
+@media screen and (max-width:1300px) {
+    #section_sub {
+        .centerbox {
+            .part1 {
+                .subtit {width: 150px; height: 150px; font-size: 3rem;
+                    &::before {display: none;}
+                }
+            }
+        }
+    }
+    
+}
+
+
 
 @media screen and (max-width:1100px) {
     html {font-size: 60%;}
@@ -84,9 +98,11 @@
 
     header {
         nav.pc_nav {display: none;}
+        .login_box {display: none;}
+        .hamburger {display: block;}
     }
 
-    .mobile_header {position: fixed; width: 100%; height: 100vh; background: #fcfcfc; z-index: 778; left: 0; top: 0; display: block; 
+    .mobile_header {position: fixed; width: 100%; height: 100vh; background: #fcfcfc; z-index: 778; left: 0; top: 0; display: block; display: none;
         .topset {height: 170px; background: $bgC1;
             .top {display: flex; align-items: center; justify-content: space-between; padding: 0 30px; height: 140px;
                 h1 {width: 30px;
@@ -96,12 +112,12 @@
                     img {width: 100%;}
                 }
                 .hamburger {width: 24px; height: 24px; position: relative;
-                    span {width: 17px; height: 3px; margin-bottom: 3px; border: 1px solid #636867; position: absolute; @include centerPo(50%,50%,1,-50%,-50%);
+                    span {width: 17px; height: 3px; margin-bottom: 3px; border: 1px solid #333; position: absolute; @include centerPo(50%,50%,1,-50%,-50%);
                         &:before,
-                        &:after {content: ""; width: 100%; height: 100%; border: 1px solid #636867; position: absolute; }
+                        &:after {content: ""; width: 100%; height: 100%; border: 1px solid #333; position: absolute; }
 
-                        &:before {top: -8px; left: -1px;}
-                        &:after {top: 6px; left: -1px;}
+                        &:before {top: -8px; left: -5px;}
+                        &:after {top: 6px; left: 3px;}
                     }
                 }
             }
@@ -110,12 +126,23 @@
             }
         }
 
-        .mobile_nav {}
+        .mobile_nav {padding: 16px 14px; height: calc(100vh - 202px); overflow: auto;
+            .gnb_mo {
+                li {line-height: 46px; font-size: 15px; 
+                    a {display: block; background: url('#{$imgUrl}arrow_down.png') no-repeat right center;}
+                    .lnb {display: none; background: #f0f0f0;
+                        li {font-size: 14px; text-indent: 15px;
+                            a {color: $fontColor2; background: none;}
+                        }
+                    }
+                }
+            }
+        }
     }
 
     
     #visual {
-        .cloud {
+        .cloud {width: 100%;
             .cloud1 {width: 50%; display: none;
                 img {width: 100%;}
             }
@@ -173,6 +200,52 @@
             }
         }
     }
+    .road {right: auto; left:0; width: 90%; } 
+
+
+        
+    /* subpage style*/
+    #visual_sub {height: 150px; 
+        .centerbox {
+            .text {font-size: 3rem;
+                p {}
+                p:nth-child(2){margin-left: 0px;}
+            }
+            
+        }
+    }
+
+    #section_sub {
+        .centerbox {
+            & .tit {font-size: 3.5rem; color: $fontColor1; }
+            .part1 {margin-bottom: 15rem; padding-top: 8rem;
+                article {
+                    .poin {}
+                }
+            }
+            .part2 {margin-bottom: 15rem;
+                article {flex-direction: column; align-items: center;
+                    .circle { padding: 2rem; width: 80%;
+                        .big_circle {
+                            span {width: 80px;white-space: normal; }
+
+                        }
+                        
+                    }
+
+                    .content { width: 100%;
+                        .cont {margin-bottom: 2.5rem;
+                            .subject {font-size: 3rem;}
+                            p {font-size: 2rem; line-height: 1.5;}
+                        }
+                    }
+                }
+            }
+        }
+        .part3 {padding-bottom: 15rem; 
+            
+        }
+    }
 }
 
 
@@ -210,4 +283,14 @@
         }
     }
     .page_progress {display: none !important;}
+
+
+    /* subpage css */
+    #section_sub {
+        .centerbox {
+            .part1 {
+                .subtit {width: 90px; height: 90px; font-size: 2.5rem; @include centerPo(50%,0,1,-50%,-50%)}
+            }
+        }
+    }
 }

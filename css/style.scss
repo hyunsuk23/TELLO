@@ -25,10 +25,18 @@ body {
 }
 
 
-
 html {font-size: 62.5%;} //10px
 body {overflow-x: hidden;}
 .centerbox {max-width: 1400px; margin: 0 auto; height: 100%; padding: 0 50px; }
+
+
+/* 버튼들 */
+.btn_wrap {display: flex; justify-content: center; margin-top: 5rem;
+    .btn_box {background: $buttonColor2; font-size: 2.4rem; color: #fff; border-radius: 3rem; padding: 0.92em 3.33em;}
+}
+
+
+
 
 header {height: 95px; position: relative; z-index: 10; 
     &:hover {}
@@ -61,20 +69,33 @@ header {height: 95px; position: relative; z-index: 10;
     .login_box {display: flex; gap: 2rem; flex-grow: 1; justify-content: flex-end;
         a.login_after {display: none;}
     }
+    .hamburger {width: 24px; height: 24px; position: relative; display: none;
+        span {width: 17px; height: 3px; margin-bottom: 3px; border: 1px solid #636867; position: absolute; @include centerPo(50%,50%,1,-50%,-50%);
+            &:before,
+            &:after {content: ""; width: 100%; height: 100%; border: 1px solid #636867; position: absolute; }
+
+            &:before {top: -8px; left: -1px;}
+            &:after {top: 6px; left: -1px;}
+        }
+    }
 }
 
-.mobile_header /* {display: none;} */
+
+.mobile_header {display: none;}
+
+
 
 #visual {height: calc(100vh - 95px); margin-bottom: 12.5rem; position: relative;
     .cloud {position: absolute; bottom: -2px; width: 102%; z-index: 77;
-        .cloud1 {position: absolute; left: 0; bottom: 0; animation: cloud1 2s infinite linear alternate; overflow: hidden;
+        .cloud1 {position: absolute; left: 0; bottom: 0; overflow: hidden;animation: cloud1 2s infinite linear alternate; 
+            img {}
         }
         @keyframes cloud1 {
-            0% {height: 300px;}
-            100% {height: 250px;}
+            0% {bottom: 0px;}
+            100% {bottom: -50px;}
         }
 
-        .cloud2 {position: absolute; width: 100%; height: 203px; background: url('#{$imgUrl}visual_motion.png'); z-index: 77; bottom: -100px; left: 0; animation: cloud2 5s infinite linear; }
+        .cloud2 {position: absolute; width: 100%; height: 203px; background: url('#{$imgUrl}visual_motion.png'); z-index: 77; bottom: -100px; left: 0; animation: cloud2 5s infinite linear;}
         @keyframes cloud2 {
             0% {background-position: 0 0;}
             100% {background-position: -4281px 0;}
@@ -83,7 +104,7 @@ header {height: 95px; position: relative; z-index: 10;
     }
     .text {width: 30%; text-align: left; word-break: keep-all; @include centerPo(50%, 50%, 1, -100%, -80%);
         strong  {font-size: 4.2vw; position: relative; opacity: 0; color: #fff;}
-        p {font-size: 2.5rem; position: relative; opacity: 0; color: #fff;margin-top: 2rem;}
+        p {font-size: 2.5rem; position: relative; opacity: 0; color: #fff; margin-top: 2rem;}
     }
     .swiper-slide.on strong {animation: visualText 1s forwards; opacity: 0;}
     .swiper-slide.on p {animation: visualText 1s forwards; animation-delay: 0.5s; opacity: 0;}
@@ -227,8 +248,7 @@ header {height: 95px; position: relative; z-index: 10;
 footer {background: $bgC1; height: 330px;}
 
 
-
-.road {position: absolute; top: calc(100vh + 200px); right: 0; width: 100%; z-index: -1; display: none;
+.road {position: absolute; top: calc(100vh + 200px); right: 0px; width: 100%; z-index: -1; 
     .doro {position: absolute; right: -20px; stroke-dashoffset: 0px; stroke-dasharray: 0px; }
     
     .doro_line {position: absolute; top: 20px; right: -20px;}
@@ -313,4 +333,81 @@ footer {background: $bgC1; height: 330px;}
 
   @media screen and (max-width:1600px) {
     .page_progress {@include centerPo(50px,10%,1,0,-50%);}
+}
+
+
+
+
+/* subpage style*/
+#visual_sub {height: 383px; background: url('#{$imgUrl}visual_sub1.png');  
+    .centerbox {height: 100%; display: flex; align-items: center;
+        .text {font-size: 5rem; color: #fff;
+            p {line-height: 1.3; text-shadow: 0 5px 5px rgba(0,0,0,0.2);}
+            p:nth-child(2){margin-left: 80px;}
+        }
+        
+    }
+}
+
+#section_sub {
+    .centerbox {
+        & .tit {font-size: 4.5rem; color: $fontColor1; margin-bottom: 4.8rem; text-align: center;}
+        .part1 {margin-bottom: 24rem; padding-top: 177px; position: relative; 
+            article {font-size: 2.4rem; color: $fontColor2; line-height: 1.5; max-width: 90rem; margin: 0 auto;
+                .poin {color: $fontColor1;}
+            }
+            .subtit {width: 180px; height: 180px; border-radius: 50%; background: rgba(163,210,178,0.7); display: flex; justify-content: center;align-items: center; font-size: 4rem; position: absolute; top: 0; right: 5rem; transform: translateY(-50%); text-align: center; word-break: keep-all;padding: 1rem;
+                &::before {content: ""; width: 100%; height: 450px; position: absolute; top: 100%; left: 0; background: url('#{$imgUrl}subicon.png') center bottom;}
+            }
+        }
+        .part2 {margin-bottom: 24rem;
+            article {display: flex; gap: 5rem;
+                .circle { padding: 6.6rem; position: relative; width: 40%;
+                    .big_circle {width: 100%; padding-top: 100%; border: 1px solid #A3D2B2; border-radius: 50%; position: relative; animation: spin360 60s infinite linear;
+                        @keyframes spin360 {
+                            0% {transform: rotate(0);}
+                            100% {transform: rotate(360deg);}
+                        }
+                        span {position: absolute; font-size: 2.4rem; white-space: nowrap; background: #fff; padding: 1rem;animation: spin360-2 60s infinite linear; z-index: 3;}
+                            
+                            @keyframes spin360-2 {
+                                0% {transform: translate(-50%,-50%) rotate(0); }
+                                100% {transform: translate(-50%,-50%) rotate(-360deg);}
+                            }
+                        span:nth-child(1) {left: 50%; top: 0%; transform: translate(-50%,-50%); }
+                        span:nth-child(2) {left: 100%; top: 30%; transform: translate(-50%,-50%); }
+                        span:nth-child(3) {left: 80%; top: 90%; transform: translate(-50%,-50%); }
+                        span:nth-child(4) {left: 20%; top: 90%; transform: translate(-50%,-50%); }
+                        span:nth-child(5) {left: 0%; top: 30%; transform: translate(-50%,-50%); }
+
+
+                        img {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 70%; max-width: 320px; min-width: 110px; animation: spin360-2 60s infinite linear;}
+                    }
+                    
+                }
+
+                .content {width: 40%;
+                    .cont {margin-bottom: 2.5rem;
+                        .subject {font-size: 3rem;}
+                        p {font-size: 2rem; line-height: 1.5;}
+                    }
+                }
+            }
+        }
+    }
+    .part3 {padding-bottom: 24rem; background: $bgC1; border-radius: 1000px 1000px 0 0; min-height: 700px;
+        .centerbox {
+            .tit {padding-top: 240px; margin-bottom: 6rem;}
+            article {
+                ul {display: flex; flex-wrap: wrap; gap: $gap1; justify-content: center;
+                    li {width: 400px; padding: 1.3rem; background: #FFFAE5; border-radius:  4rem 0;
+                        .number {width: 12rem; height: 6.5rem; border-radius: 100px 0; background: #5DB8A6; color: #fff; font-size: 2.4rem; display: flex; justify-content: center; align-items: center;}
+                        p {font-size: 2.4rem; line-height: 1.5; width: 60%; margin: 0 auto; word-break: keep-all; text-align: center; padding-bottom: 6rem;}
+                    }
+                }
+                
+            }
+        }
+        
+    }
 }

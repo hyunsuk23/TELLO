@@ -3,93 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>유아교육홈페이지</title>
+    <title>TELLO유아교육홈페이지</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mobile.css">
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="shortcut icon" href="images/logo.png">
+
+    <!-- seo 최적화 -->
+    <meta name="title" content="Tello">
+    <meta name="keyword" content="유아, 교육, 어린이집, 유치원, 학령기, 학원, 어린이, 프로그램">
+    <meta name="description" content="TELLO교육 홈페이지는 학령기 전 유아들을 대상으로 하는 교육 사이트">
+    <meta name="author" content="이현숙&강경모">
+    <meta name="robots" content="noindex, nofollow, noarchive"/>
+<!-- 모바일 -->
+    <meta property="og:title" content="TELLO">
+    <meta property="og:description" content="유아, 교육, 어린이집, 유치원, 학령기, 학원, 어린이, 프로그램">
+    <meta property="og:image" content="images/slide1.jpg">
+    <meta property="og:url" content="http;//TEllO.co.kr">
+
+
     <script src="script/jquery-3.7.1.js"></script>
     <script src="script/action.js"></script>
 </head>
 <body>
-    <header>
-        <div class="centerbox">
-            <h1><a href="#"><img src="images/logo.png" alt="TELLO"></a></h1>
-            <nav class="pc_nav">
-                <ul class="gnb">
-                    <li><a href="#">TELLO 소개</a>
-                        <ul class="lnb">
-                            <li><a href="#">교육철학</a></li>
-                            <li><a href="#">교실소개</a></li>
-                            <li><a href="#">선생님소개</a></li>
-                            <li><a href="#">오시는길</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">놀이 & 활동</a>
-                        <ul class="lnb">
-                            <li><a href="#">미술 & 창의</a></li>
-                            <li><a href="#">언어(영어)</a></li>
-                            <li><a href="#">게임 & 신체</a></li>
-                            <li><a href="#">언어 & 오감</a></li>
-                            <li><a href="#">특별 테마</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">부모님 가이드</a>
-                        <ul class="lnb">
-                            <li><a href="#">발달 정보</a></li>
-                            <li><a href="#">육아&교육 TIP</a></li>
-                            <li><a href="#">알림이</a></li>
-                            <li><a href="#">문의&상담 신청</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">TELLO 후기</a>
-                        <ul class="lnb">
-                            <li><a href="#">연령별 후기</a></li>
-                            <li><a href="#">놀이&활동 후기</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">TELLO 뉴스</a>
-                        <ul class="lnb">
-                            <li><a href="#">TELLO 소식</a></li>
-                            <li><a href="#">교육 트렌드</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="lnb_bg"></div>
-            </nav>
-            <div class="login_box">
-                <a href="#" class="login_before"><img src="images/icon_login.png" alt="로그인"></a>
-                <a href="#" class="login_after"><img src="images/icon_profile.png" alt="프로필"></a>
-                <a href="#"><img src="images/icon_admin.png" alt="내정보수정"></a>
-                <a href="#"><img src="images/icon_news.png" alt="뉴스"></a>
-                <a href="#" class="btn_play"><img src="images/icon_play.png" alt="플레이"></a>
-            </div>
-        </div>
-
-        <div class="mobile_header">
-            <div class="topset">
-                <div class="top">
-                    <h1><img src="images/logo.png" alt=""></h1>
-                    <figure class="profile"><img src="images/sample.png" alt=""></figure>
-                    <a href="#" class="hamburger">
-                        <span></span>
-                    </a>
-                </div>
-
-                <div class="bottom">
-                    <a href="#">로그인해주세요</a>
-                </div>
-            </div>
-            <nav class="mobile_nav">
-                <ul class="gnb_mo">
-
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-
+    
     <div id="visual">
         <!-- Swiper -->
         <div class="swiper visualSwiper">
@@ -346,8 +284,6 @@
         </section>
     </div>
 
-
-    <footer></footer>
     
 
     <div class="road">
@@ -375,12 +311,18 @@
         </svg>
         <svg width="1244" height="2724" viewBox="0 0 1244 2724" fill="none" xmlns="http://www.w3.org/2000/svg" class="doro_line line4">
             <path d="M1243.5 2.50083C1160.5 -6.99917 985.599 92.9008 949.999 568.501C905.499 1163 733.999 825.5 615.999 719.5C497.999 613.5 106.999 565 21.4986 972C-64.0014 1379 135.999 1909 375.999 1811C615.999 1713 831.497 1705.5 949.999 1811C1068.5 1916.5 1141.5 2181.5 213 2723"  />
-        </svg>   
+        </svg>
     </div>
+
+
+
+
 
     <div class="page_progress">
         <span class="bar"></span>
-    </div> 
+    </div>    
+
+
 
 
 
@@ -420,7 +362,7 @@
 
 
         var swiper2 = new Swiper(".section1Swiper", {
-            slidesPerView: 1, //모바일
+            slidesPerView: 1,  //mobile
             spaceBetween: 44,
             speed : 500,
             loop:true,
@@ -438,7 +380,7 @@
                 spaceBetween: 25,
                 },
                 1100: {
-                slidesPerView: 3.5,  //브라우저가 1024보다 클 때
+                slidesPerView: 3.5,  //브라우저가 1100보다 클 때
                 spaceBetween: 30,
                 },
             },
